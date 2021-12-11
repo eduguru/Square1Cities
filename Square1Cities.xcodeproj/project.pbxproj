@@ -27,6 +27,11 @@
 		593635372764951D00E887FD /* CitiesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593635352764951D00E887FD /* CitiesListViewController.xib */; };
 		59363539276495BE00E887FD /* CitiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59363538276495BE00E887FD /* CitiesCoordinator.swift */; };
 		5936353B27649CCC00E887FD /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 5936353A27649CCC00E887FD /* swiftgen.yml */; };
+		59F68ADC2764EE3E000E3420 /* CitiesMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68ADA2764EE3E000E3420 /* CitiesMapViewController.swift */; };
+		59F68ADD2764EE3E000E3420 /* CitiesMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F68ADB2764EE3E000E3420 /* CitiesMapViewController.xib */; };
+		59F68AE02764EEBD000E3420 /* CitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68ADE2764EEBD000E3420 /* CitiesViewController.swift */; };
+		59F68AE12764EEBD000E3420 /* CitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F68ADF2764EEBD000E3420 /* CitiesViewController.xib */; };
+		59F68AE32764F43F000E3420 /* UniversalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AE22764F43F000E3420 /* UniversalLoader.swift */; };
 		64B51A2AB41D3939967EAC5C /* Pods_Square1Cities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BC51DBA6BC910F633EF7B8 /* Pods_Square1Cities.framework */; };
 		780C2B40FC35AB0963D66B63 /* Pods_Square1Cities_Square1CitiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00227182FFD0C649D6C9A39C /* Pods_Square1Cities_Square1CitiesUITests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +80,11 @@
 		593635352764951D00E887FD /* CitiesListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitiesListViewController.xib; sourceTree = "<group>"; };
 		59363538276495BE00E887FD /* CitiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesCoordinator.swift; sourceTree = "<group>"; };
 		5936353A27649CCC00E887FD /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
+		59F68ADA2764EE3E000E3420 /* CitiesMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesMapViewController.swift; sourceTree = "<group>"; };
+		59F68ADB2764EE3E000E3420 /* CitiesMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitiesMapViewController.xib; sourceTree = "<group>"; };
+		59F68ADE2764EEBD000E3420 /* CitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewController.swift; sourceTree = "<group>"; };
+		59F68ADF2764EEBD000E3420 /* CitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitiesViewController.xib; sourceTree = "<group>"; };
+		59F68AE22764F43F000E3420 /* UniversalLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalLoader.swift; sourceTree = "<group>"; };
 		A1BC51DBA6BC910F633EF7B8 /* Pods_Square1Cities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1Cities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7ADDAB38746BA67BC5B9EE /* Pods-Square1CitiesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1CitiesTests.release.xcconfig"; path = "Target Support Files/Pods-Square1CitiesTests/Pods-Square1CitiesTests.release.xcconfig"; sourceTree = "<group>"; };
 		C1D2D79E2A0B4690E7D8256E /* Pods_Square1CitiesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1CitiesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +242,7 @@
 				5936352C276491A600E887FD /* Services */,
 				5936352B2764919C00E887FD /* Api */,
 				5936352D276491BB00E887FD /* Error */,
+				59F68AE22764F43F000E3420 /* UniversalLoader.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -288,12 +299,32 @@
 		59363533276494C500E887FD /* cities */ = {
 			isa = PBXGroup;
 			children = (
+				59F68AD92764EE03000E3420 /* map */,
+				59F68AD82764EDE8000E3420 /* list */,
 				59363538276495BE00E887FD /* CitiesCoordinator.swift */,
+				590B06192764DE8C00A88A8B /* CitiesReviewData.swift */,
 				593635342764951D00E887FD /* CitiesListViewController.swift */,
 				593635352764951D00E887FD /* CitiesListViewController.xib */,
-				590B06192764DE8C00A88A8B /* CitiesReviewData.swift */,
 			);
 			path = cities;
+			sourceTree = "<group>";
+		};
+		59F68AD82764EDE8000E3420 /* list */ = {
+			isa = PBXGroup;
+			children = (
+				59F68ADE2764EEBD000E3420 /* CitiesViewController.swift */,
+				59F68ADF2764EEBD000E3420 /* CitiesViewController.xib */,
+			);
+			name = list;
+			sourceTree = "<group>";
+		};
+		59F68AD92764EE03000E3420 /* map */ = {
+			isa = PBXGroup;
+			children = (
+				59F68ADA2764EE3E000E3420 /* CitiesMapViewController.swift */,
+				59F68ADB2764EE3E000E3420 /* CitiesMapViewController.xib */,
+			);
+			name = map;
 			sourceTree = "<group>";
 		};
 		7408C4960448FAAF9F52E5B2 /* Pods */ = {
@@ -420,11 +451,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59F68ADD2764EE3E000E3420 /* CitiesMapViewController.xib in Resources */,
 				5936350227648F2C00E887FD /* LaunchScreen.storyboard in Resources */,
 				590B060D2764CB4200A88A8B /* Colors.xml in Resources */,
 				593634FF27648F2C00E887FD /* Assets.xcassets in Resources */,
 				593635372764951D00E887FD /* CitiesListViewController.xib in Resources */,
 				5936353B27649CCC00E887FD /* swiftgen.yml in Resources */,
+				59F68AE12764EEBD000E3420 /* CitiesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,11 +625,14 @@
 				590B06182764CFC000A88A8B /* CitiesService.swift in Sources */,
 				590B06162764CFAB00A88A8B /* CitiesApi.swift in Sources */,
 				590B06112764CC4000A88A8B /* Colors.swift in Sources */,
+				59F68ADC2764EE3E000E3420 /* CitiesMapViewController.swift in Sources */,
 				593634F627648F2A00E887FD /* AppDelegate.swift in Sources */,
 				593634F827648F2A00E887FD /* SceneDelegate.swift in Sources */,
 				590B061A2764DE8C00A88A8B /* CitiesReviewData.swift in Sources */,
 				593635362764951D00E887FD /* CitiesListViewController.swift in Sources */,
 				590B06132764CC4000A88A8B /* Assets.swift in Sources */,
+				59F68AE32764F43F000E3420 /* UniversalLoader.swift in Sources */,
+				59F68AE02764EEBD000E3420 /* CitiesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

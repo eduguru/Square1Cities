@@ -20,17 +20,53 @@ class CitiesListViewController: UIViewController {
         case firstChildTab = 0
         case secondChildTab = 1
     }
+    
+    var currentViewController: UIViewController?
+    
+    lazy var firstChildTabVC: UIViewController? = {
+        let viewController = CitiesViewController()
+        return viewController
+    }()
+    
+    lazy var secondChildTabVC : UIViewController? = {
+        let viewController = CitiesMapViewController()
+        return viewController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         setUpViews()
         
     }
     
     //MARK: -
-    func displayCurrentTab(_ tabIndex: Int){
+    private func displayCurrentTab(_ tabIndex: Int){
         print("selected index is \(tabIndex)")
+        if let vc = viewControllerForSelectedSegmentIndex(tabIndex) {
+            
+            self.addChild(vc)
+            vc.didMove(toParent: self)
+            
+            vc.view.frame = self.containerView.bounds
+            self.containerView.addSubview(vc.view)
+            self.currentViewController = vc
+        }
+        
+    }
+    
+    private func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
+        var vc: UIViewController?
+        switch index {
+        case TabIndex.firstChildTab.rawValue :
+            vc = firstChildTabVC
+        case TabIndex.secondChildTab.rawValue :
+            vc = secondChildTabVC
+        default:
+            return nil
+        }
+        
+        return vc
     }
     
     //MARK: - private func
