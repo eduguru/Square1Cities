@@ -18,6 +18,26 @@ class CitiesViewController: UIViewController {
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        
+        getData()
+    }
+    
+    func getData() {
+        let review: CitiesReviewData = CitiesReviewData(
+            showCountry: true,
+            filter: "",
+            page: 1
+        )
+        
+        CitiesService().queryCities(reviewData: review, completion: { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let responseObject):
+                print("arrayResponse \(responseObject)")
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        })
     }
 
 }

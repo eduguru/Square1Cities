@@ -9,7 +9,7 @@ import Moya
 
 final class CitiesService {
     
-    func queryCities(reviewData: CitiesReviewData, completion: @escaping (Result<String, Error>) -> ()) {
+    func queryCities(reviewData: CitiesReviewData, completion: @escaping (Result<CitiesResponse, Error>) -> ()) {
         let provider = MoyaProvider<CitiesApi>()
         UniversalLoader().showUniversalLoadingView(true)
         
@@ -20,11 +20,20 @@ final class CitiesService {
             case let .success(response):
                 print("Service", response)
                 let strResponse: String = String(data: response.data, encoding: .utf8) ?? ""
-                completion(.success(strResponse))
+                let jsonData: Data = response.data//Data(strResponse)
+                
+                do {
+                    let response = try JSONDecoder().decode(CitiesResponse.self, from: jsonData)
+                    completion(.success(response))
+                } catch {
+                    print("Service error on failure \(error)")
+                    completion(.failure(error))
+                }
+                
               
             case let .failure(error):
-            print("Service error on failure \(error)")
-              completion(.failure(error))
+                print("Service error on failure \(error)")
+                completion(.failure(error))
             }
         }
         

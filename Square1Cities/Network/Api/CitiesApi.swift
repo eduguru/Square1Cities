@@ -43,13 +43,14 @@ extension CitiesApi: TargetType {
                 "include": includeTerm
             ]
             
-            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         }
     }
     
     var headers: [String : String]? {
-        let headers: [String: String] = [:]
-        
+        let headers = [
+            "Content type": "application/json",
+        ]
         return headers
     }
     

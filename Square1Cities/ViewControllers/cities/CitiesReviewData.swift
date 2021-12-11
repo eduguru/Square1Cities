@@ -10,5 +10,5 @@ import Foundation
 struct CitiesReviewData {
     var showCountry: Bool = false
     var filter: String = ""
-    var page: Int = 0
+    var page: Int = 1
 }
