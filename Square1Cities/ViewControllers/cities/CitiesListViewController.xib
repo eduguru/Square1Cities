@@ -29,7 +29,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTI-a5-BH2">
-                    <rect key="frame" x="0.0" y="92" width="414" height="770"/>
+                    <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </subviews>
@@ -39,7 +39,7 @@
                 <constraint firstItem="kTI-a5-BH2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="C1E-8E-2jN"/>
                 <constraint firstItem="kTI-a5-BH2" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="KW7-ft-RHM"/>
                 <constraint firstItem="kTI-a5-BH2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PIg-Kn-YGv"/>
-                <constraint firstItem="kTI-a5-BH2" firstAttribute="top" secondItem="gdz-OY-ErG" secondAttribute="bottom" constant="8" symbolic="YES" id="btm-Kb-gZl"/>
+                <constraint firstItem="kTI-a5-BH2" firstAttribute="top" secondItem="gdz-OY-ErG" secondAttribute="bottom" id="btm-Kb-gZl"/>
                 <constraint firstItem="gdz-OY-ErG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="doQ-fO-AcQ"/>
                 <constraint firstItem="gdz-OY-ErG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pAk-0S-Eo9"/>
                 <constraint firstItem="gdz-OY-ErG" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="zVz-9l-79L"/>

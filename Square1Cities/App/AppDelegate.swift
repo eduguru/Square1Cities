@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,12 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK:- variables
     var window: UIWindow?
     var coordinator: AppCoordinator?
+    
+    private var GOOGLE_PLACES_API_KEY = "AIzaSyD2ivJBX0RFZ_HlxVQQ0tCL94_Vzzcm_mQ"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        GMSServices.provideAPIKey(GOOGLE_PLACES_API_KEY)
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let navigationController: UINavigationController = .init()
+        let navigationController: UINavigationController = BaseNavigationController.init()
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

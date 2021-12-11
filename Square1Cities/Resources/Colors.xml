@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <color name="colorPrimary">#fbad18</color>
-  <color name="alternateColorPrimary">#fbad18</color>
+  <color name="colorPrimary">#D2042D</color>
+  <color name="alternateColorPrimary">#D2042D</color>
   
-  <color name="colorPrimaryDark">#fbad18</color>
-  <color name="colorPrimaryDarkest">#1B5E20</color>
+  <color name="colorPrimaryDark">#D2042D</color>
+  <color name="colorPrimaryDarkest">#D2042D</color>
   <color name="colorAccent">#33691e</color>
   
   <color name="colorPrimaryLight">#90ee90</color>

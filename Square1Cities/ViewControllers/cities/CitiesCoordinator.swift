@@ -22,7 +22,23 @@ class CitiesCoordinator: Coordinator {
     func start() {
         let nextVc = CitiesListViewController()
         nextVc.coordinator = self
+        nextVc.model = CitiesViewModel()
+        nextVc.goToFilter = applyFilter
         
         navigationController.pushViewController(nextVc, animated: false)
+    }
+    
+    func applyFilter() {
+        let nextVc = FilterViewController()
+        nextVc.coordinator = self
+        nextVc.applyFilterSet = filterResult
+        
+        navigationController.pushViewController(nextVc, animated: false)
+    }
+    
+    private func filterResult(filter: CitiesReviewData) {
+        print(filter)
+        self.finish()
+        navigationController.popViewController(animated: true)
     }
 }

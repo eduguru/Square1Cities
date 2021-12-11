@@ -18,9 +18,9 @@ internal struct ColorName {
   internal let rgbaValue: UInt32
   internal var color: Color { return Color(named: self) }
 
-  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#fbad18"></span>
-  /// Alpha: 100% <br/> (0xfbad18ff)
-  internal static let alternateColorPrimary = ColorName(rgbaValue: 0xfbad18ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#d2042d"></span>
+  /// Alpha: 100% <br/> (0xd2042dff)
+  internal static let alternateColorPrimary = ColorName(rgbaValue: 0xd2042dff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#999999"></span>
   /// Alpha: 100% <br/> (0x999999ff)
   internal static let aluminum = ColorName(rgbaValue: 0x999999ff)
@@ -54,15 +54,15 @@ internal struct ColorName {
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#e57373"></span>
   /// Alpha: 100% <br/> (0xe57373ff)
   internal static let colorErrorLight = ColorName(rgbaValue: 0xe57373ff)
-  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#fbad18"></span>
-  /// Alpha: 100% <br/> (0xfbad18ff)
-  internal static let colorPrimary = ColorName(rgbaValue: 0xfbad18ff)
-  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#fbad18"></span>
-  /// Alpha: 100% <br/> (0xfbad18ff)
-  internal static let colorPrimaryDark = ColorName(rgbaValue: 0xfbad18ff)
-  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#1b5e20"></span>
-  /// Alpha: 100% <br/> (0x1b5e20ff)
-  internal static let colorPrimaryDarkest = ColorName(rgbaValue: 0x1b5e20ff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#d2042d"></span>
+  /// Alpha: 100% <br/> (0xd2042dff)
+  internal static let colorPrimary = ColorName(rgbaValue: 0xd2042dff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#d2042d"></span>
+  /// Alpha: 100% <br/> (0xd2042dff)
+  internal static let colorPrimaryDark = ColorName(rgbaValue: 0xd2042dff)
+  /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#d2042d"></span>
+  /// Alpha: 100% <br/> (0xd2042dff)
+  internal static let colorPrimaryDarkest = ColorName(rgbaValue: 0xd2042dff)
   /// <span style="display:block;width:3em;height:2em;border:1px solid black;background:#90ee90"></span>
   /// Alpha: 100% <br/> (0x90ee90ff)
   internal static let colorPrimaryLight = ColorName(rgbaValue: 0x90ee90ff)

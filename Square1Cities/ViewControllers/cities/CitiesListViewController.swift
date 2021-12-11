@@ -14,24 +14,21 @@ class CitiesListViewController: UIViewController {
     @IBOutlet weak var segmentioView: Segmentio!
     
     var coordinator: Coordinator?
+    var model: CitiesViewModel?
+    
+    var goToFilter: (() -> Void)?
     
     var segmentioStyle = SegmentioStyle.onlyLabel
-    enum TabIndex : Int {
-        case firstChildTab = 0
-        case secondChildTab = 1
-    }
-    
     var currentViewController: UIViewController?
     
-    lazy var firstChildTabVC: UIViewController? = {
-        let viewController = CitiesViewController()
-        return viewController
-    }()
-    
-    lazy var secondChildTabVC : UIViewController? = {
-        let viewController = CitiesMapViewController()
-        return viewController
-    }()
+    var segmentTitles: [String] = [
+        "List",
+        "MapView"
+    ]
+    lazy var vcDic: [Int : UIViewController?] = [
+        0 : CitiesViewController(),
+        1 : CitiesMapViewController()
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +54,8 @@ class CitiesListViewController: UIViewController {
     
     private func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
         var vc: UIViewController?
-        switch index {
-        case TabIndex.firstChildTab.rawValue :
-            vc = firstChildTabVC
-        case TabIndex.secondChildTab.rawValue :
-            vc = secondChildTabVC
-        default:
-            return nil
-        }
+        
+        vc = vcDic[index] as? UIViewController
         
         return vc
     }
@@ -73,6 +64,11 @@ class CitiesListViewController: UIViewController {
     private func setUpViews() {
         
         self.navigationItem.title = "World Cities"
+        
+        let filterButton: UIBarButtonItem = UIBarButtonItem(image: Asset.filter.image, style: UIBarButtonItem.Style.plain, target: self, action: #selector(applyFilter))
+        
+        self.navigationItem.setRightBarButtonItems([filterButton], animated: true)
+        
         self.setUpSegmentio()
         segmentioView.valueDidChange = { segmentio, segmentIndex in
             print("Selected item: ", segmentIndex)
@@ -80,24 +76,20 @@ class CitiesListViewController: UIViewController {
             self.displayCurrentTab(segmentIndex)
         }
         
-        displayCurrentTab(TabIndex.firstChildTab.rawValue)
+        displayCurrentTab(0)
+    }
+    
+    @objc private func applyFilter() {
+        goToFilter?()
     }
     
     private func setUpSegmentio() {
     var content = [SegmentioItem]()
     
-    let item1 = SegmentioItem(
-        title: "List",
-        image: UIImage(named: "logo")
-    )
-    
-    let item2 = SegmentioItem(
-        title: "MapView",
-        image: UIImage(named: "logo")
-    )
-    
-    content.append(item1)
-    content.append(item2)
+        for key in segmentTitles {
+            let segmentItem = SegmentioItem( title: key, image: UIImage(named: "logo"))
+            content.append(segmentItem)
+        }
     
     let indicatorOptoins = SegmentioIndicatorOptions(
         type: .bottom,

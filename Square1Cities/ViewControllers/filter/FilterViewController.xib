@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FilterViewController" customModule="Square1Cities" customModuleProvider="target">
+            <connections>
+                <outlet property="btn_done" destination="oGm-mb-Tta" id="CnJ-6b-LEB"/>
+                <outlet property="segmentYesNo" destination="Ie0-I0-eG6" id="EEW-qH-S5T"/>
+                <outlet property="txt_search" destination="aBS-Yg-TnY" id="cbg-1J-V5v"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BOJ-b6-Nub">
+                    <rect key="frame" x="16" y="84" width="382" height="62.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search Keyword" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBA-X1-yxB">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Search Keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aBS-Yg-TnY">
+                            <rect key="frame" x="0.0" y="28.5" width="382" height="34"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="fBA-X1-yxB" firstAttribute="leading" secondItem="BOJ-b6-Nub" secondAttribute="leading" id="0ha-yP-Y5p"/>
+                        <constraint firstItem="aBS-Yg-TnY" firstAttribute="leading" secondItem="BOJ-b6-Nub" secondAttribute="leading" id="Noi-YN-Hzl"/>
+                        <constraint firstAttribute="trailing" secondItem="aBS-Yg-TnY" secondAttribute="trailing" id="nWo-AC-nWH"/>
+                        <constraint firstAttribute="trailing" secondItem="fBA-X1-yxB" secondAttribute="trailing" id="tWY-xq-Ahl"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Q4d-UE-91t">
+                    <rect key="frame" x="16" y="170.5" width="382" height="31"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include Country?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oon-ab-If1">
+                            <rect key="frame" x="0.0" y="6.5" width="304" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ie0-I0-eG6">
+                            <rect key="frame" x="312" y="0.0" width="70" height="32"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="piI-wM-aWX"/>
+                            </constraints>
+                            <segments>
+                                <segment title="No"/>
+                                <segment title="Yes"/>
+                            </segments>
+                            <connections>
+                                <action selector="actionYesNo:" destination="-1" eventType="valueChanged" id="fuZ-DI-ATv"/>
+                            </connections>
+                        </segmentedControl>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oGm-mb-Tta">
+                    <rect key="frame" x="16" y="838" width="382" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="r6z-gb-ey3"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Apply Filter"/>
+                    <connections>
+                        <action selector="actionDone:" destination="-1" eventType="touchUpInside" id="W63-5d-bp5"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BOJ-b6-Nub" secondAttribute="trailing" constant="16" id="2Ny-lu-ZsZ"/>
+                <constraint firstItem="Q4d-UE-91t" firstAttribute="top" secondItem="BOJ-b6-Nub" secondAttribute="bottom" constant="24" id="8sn-gI-S2M"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="oGm-mb-Tta" secondAttribute="trailing" constant="16" id="DPc-rw-Qx0"/>
+                <constraint firstItem="Q4d-UE-91t" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="Hvq-Va-J9C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Q4d-UE-91t" secondAttribute="trailing" constant="16" id="TBi-Bh-KTs"/>
+                <constraint firstItem="BOJ-b6-Nub" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="eIm-EM-v6G"/>
+                <constraint firstItem="BOJ-b6-Nub" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="rcu-qe-zTk"/>
+                <constraint firstItem="oGm-mb-Tta" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="16" id="sDy-Hm-4fO"/>
+                <constraint firstItem="oGm-mb-Tta" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="zLy-Vp-lVd"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="114.50892857142857"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

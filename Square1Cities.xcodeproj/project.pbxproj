@@ -33,6 +33,12 @@
 		59F68AE12764EEBD000E3420 /* CitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F68ADF2764EEBD000E3420 /* CitiesViewController.xib */; };
 		59F68AE32764F43F000E3420 /* UniversalLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AE22764F43F000E3420 /* UniversalLoader.swift */; };
 		59F68AE52764FAB8000E3420 /* CitiesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AE42764FAB8000E3420 /* CitiesResponse.swift */; };
+		59F68AE827650D0D000E3420 /* CityViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AE627650D0D000E3420 /* CityViewCell.swift */; };
+		59F68AE927650D0D000E3420 /* CityViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F68AE727650D0D000E3420 /* CityViewCell.xib */; };
+		59F68AED27651DB2000E3420 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AEB27651DB2000E3420 /* FilterViewController.swift */; };
+		59F68AEE27651DB2000E3420 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F68AEC27651DB2000E3420 /* FilterViewController.xib */; };
+		59F68AF0276529BD000E3420 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AEF276529BD000E3420 /* BaseNavigationController.swift */; };
+		59F68AF2276540D2000E3420 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AF1276540D1000E3420 /* CitiesViewModel.swift */; };
 		64B51A2AB41D3939967EAC5C /* Pods_Square1Cities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BC51DBA6BC910F633EF7B8 /* Pods_Square1Cities.framework */; };
 		780C2B40FC35AB0963D66B63 /* Pods_Square1Cities_Square1CitiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00227182FFD0C649D6C9A39C /* Pods_Square1Cities_Square1CitiesUITests.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +93,12 @@
 		59F68ADF2764EEBD000E3420 /* CitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitiesViewController.xib; sourceTree = "<group>"; };
 		59F68AE22764F43F000E3420 /* UniversalLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalLoader.swift; sourceTree = "<group>"; };
 		59F68AE42764FAB8000E3420 /* CitiesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesResponse.swift; sourceTree = "<group>"; };
+		59F68AE627650D0D000E3420 /* CityViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewCell.swift; sourceTree = "<group>"; };
+		59F68AE727650D0D000E3420 /* CityViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityViewCell.xib; sourceTree = "<group>"; };
+		59F68AEB27651DB2000E3420 /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		59F68AEC27651DB2000E3420 /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
+		59F68AEF276529BD000E3420 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		59F68AF1276540D1000E3420 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
 		A1BC51DBA6BC910F633EF7B8 /* Pods_Square1Cities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1Cities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7ADDAB38746BA67BC5B9EE /* Pods-Square1CitiesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1CitiesTests.release.xcconfig"; path = "Target Support Files/Pods-Square1CitiesTests/Pods-Square1CitiesTests.release.xcconfig"; sourceTree = "<group>"; };
 		C1D2D79E2A0B4690E7D8256E /* Pods_Square1CitiesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1CitiesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +217,7 @@
 		59363525276490F300E887FD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				59F68AEA27651D90000E3420 /* filter */,
 				59363533276494C500E887FD /* cities */,
 			);
 			path = ViewControllers;
@@ -213,6 +226,8 @@
 		593635262764910B00E887FD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				59F68AE627650D0D000E3420 /* CityViewCell.swift */,
+				59F68AE727650D0D000E3420 /* CityViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +310,7 @@
 				593634F527648F2A00E887FD /* AppDelegate.swift */,
 				593634F727648F2A00E887FD /* SceneDelegate.swift */,
 				593635312764940A00E887FD /* AppCoordinator.swift */,
+				59F68AEF276529BD000E3420 /* BaseNavigationController.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -305,6 +321,7 @@
 				59F68AD92764EE03000E3420 /* map */,
 				59F68AD82764EDE8000E3420 /* list */,
 				59363538276495BE00E887FD /* CitiesCoordinator.swift */,
+				59F68AF1276540D1000E3420 /* CitiesViewModel.swift */,
 				590B06192764DE8C00A88A8B /* CitiesReviewData.swift */,
 				593635342764951D00E887FD /* CitiesListViewController.swift */,
 				593635352764951D00E887FD /* CitiesListViewController.xib */,
@@ -328,6 +345,15 @@
 				59F68ADB2764EE3E000E3420 /* CitiesMapViewController.xib */,
 			);
 			name = map;
+			sourceTree = "<group>";
+		};
+		59F68AEA27651D90000E3420 /* filter */ = {
+			isa = PBXGroup;
+			children = (
+				59F68AEB27651DB2000E3420 /* FilterViewController.swift */,
+				59F68AEC27651DB2000E3420 /* FilterViewController.xib */,
+			);
+			path = filter;
 			sourceTree = "<group>";
 		};
 		7408C4960448FAAF9F52E5B2 /* Pods */ = {
@@ -459,7 +485,9 @@
 				590B060D2764CB4200A88A8B /* Colors.xml in Resources */,
 				593634FF27648F2C00E887FD /* Assets.xcassets in Resources */,
 				593635372764951D00E887FD /* CitiesListViewController.xib in Resources */,
+				59F68AE927650D0D000E3420 /* CityViewCell.xib in Resources */,
 				5936353B27649CCC00E887FD /* swiftgen.yml in Resources */,
+				59F68AEE27651DB2000E3420 /* FilterViewController.xib in Resources */,
 				59F68AE12764EEBD000E3420 /* CitiesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -623,7 +651,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				593635322764940A00E887FD /* AppCoordinator.swift in Sources */,
+				59F68AE827650D0D000E3420 /* CityViewCell.swift in Sources */,
 				59363539276495BE00E887FD /* CitiesCoordinator.swift in Sources */,
+				59F68AED27651DB2000E3420 /* FilterViewController.swift in Sources */,
+				59F68AF2276540D2000E3420 /* CitiesViewModel.swift in Sources */,
 				590B06122764CC4000A88A8B /* Strings.swift in Sources */,
 				590B06182764CFC000A88A8B /* CitiesService.swift in Sources */,
 				590B06162764CFAB00A88A8B /* CitiesApi.swift in Sources */,
@@ -634,6 +665,7 @@
 				59F68AE52764FAB8000E3420 /* CitiesResponse.swift in Sources */,
 				590B061A2764DE8C00A88A8B /* CitiesReviewData.swift in Sources */,
 				593635362764951D00E887FD /* CitiesListViewController.swift in Sources */,
+				59F68AF0276529BD000E3420 /* BaseNavigationController.swift in Sources */,
 				590B06132764CC4000A88A8B /* Assets.swift in Sources */,
 				59F68AE32764F43F000E3420 /* UniversalLoader.swift in Sources */,
 				59F68AE02764EEBD000E3420 /* CitiesViewController.swift in Sources */,
