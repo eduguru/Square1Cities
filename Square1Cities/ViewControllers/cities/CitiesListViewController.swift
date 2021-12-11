@@ -21,15 +21,6 @@ class CitiesListViewController: UIViewController {
     var segmentioStyle = SegmentioStyle.onlyLabel
     var currentViewController: UIViewController?
     
-    var segmentTitles: [String] = [
-        "List",
-        "MapView"
-    ]
-    lazy var vcDic: [Int : UIViewController?] = [
-        0 : CitiesViewController(),
-        1 : CitiesMapViewController()
-    ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -54,8 +45,8 @@ class CitiesListViewController: UIViewController {
     
     private func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
         var vc: UIViewController?
-        
-        vc = vcDic[index] as? UIViewController
+        let  viewController = model?.vcDic[index]
+        vc = viewController as! UIViewController
         
         return vc
     }
@@ -86,7 +77,7 @@ class CitiesListViewController: UIViewController {
     private func setUpSegmentio() {
     var content = [SegmentioItem]()
     
-        for key in segmentTitles {
+        for key in model!.segmentTitles {
             let segmentItem = SegmentioItem( title: key, image: UIImage(named: "logo"))
             content.append(segmentItem)
         }
