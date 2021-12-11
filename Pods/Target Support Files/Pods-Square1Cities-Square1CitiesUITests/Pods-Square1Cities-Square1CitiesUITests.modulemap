@@ -1,0 +1,6 @@
+framework module Pods_Square1Cities_Square1CitiesUITests {
+  umbrella header "Pods-Square1Cities-Square1CitiesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

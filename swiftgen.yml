@@ -1,0 +1,18 @@
+strings:
+  inputs: Square1Cities/Base.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Square1Cities/Generated/Strings.swift
+xcassets:
+  inputs:
+    - Square1Cities/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Square1Cities/Generated/Assets.swift
+      
+colors:
+  inputs:
+    - Square1Cities/Resources/Colors.xml
+  outputs:
+    - templateName: swift5
+      output: Square1Cities/Generated/Colors.swift

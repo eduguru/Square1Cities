@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">#fbad18</color>
+  <color name="alternateColorPrimary">#fbad18</color>
+  
+  <color name="colorPrimaryDark">#fbad18</color>
+  <color name="colorPrimaryDarkest">#1B5E20</color>
+  <color name="colorAccent">#33691e</color>
+  
+  <color name="colorPrimaryLight">#90ee90</color>
+  
+  <color name="colorDefault">#9e9e9e</color>
+  <color name="colorDefaultLight">#e0e0e0</color>
+  <color name="colorDefaultDark">#616161</color>
+  
+  <color name="colorSuccess">#4caf50</color>
+  <color name="colorSuccessLight">#81c784</color>
+  <color name="colorSuccessDark">#388e3c</color>
+  
+  <color name="colorWarning">#ff9800</color>
+  <color name="colorWarningLight">#ffb74d</color>
+  <color name="colorWarningDark">#f57c00</color>
+  
+  <color name="colorError">#f44336</color>
+  <color name="colorErrorLight">#e57373</color>
+  <color name="colorErrorDark">#d32f2f</color>
+  
+  <color name="tabsScrollColor">@color/colorPrimaryLight</color>
+  <color name="dividerColor">#B6B6B6</color>
+  <color name="dashboardInnerRingColor">#B6B6B6</color>
+  <color name="colorContextMenu">#616161</color>
+  <color name="colorRipple">#A9A9F5</color>
+  
+  <color name="colorTextPrimary">#212121</color>
+  <color name="colorTextSecondary">#727272</color>
+  
+  
+  <color name="lightGreen">#d2f8d2</color>
+  <color name="jet">#222222</color>
+  <color name="oil">#333333</color>
+  <color name="monsoon">#777777</color>
+  <color name="jumbo">#888888</color>
+  <color name="aluminum">#999999</color>
+  <color name="base">#AAAAAA</color>
+  <color name="iron">#CCCCCC</color>
+  <color name="customLightGray">#FAFAFA</color>
+  
+  <!-- /* Social Media Brand Colors */ -->
+  <color name="twitter">#00aced</color>
+  <color name="facebook">#3b5998</color>
+  <color name="googleplus">#dd4b39</color>
+  <color name="pinterest">#cb2027</color>
+  <color name="linkedin">#007bb6</color>
+  <color name="youtube">#bb0000</color>
+  <color name="vimeo">#aad450</color>
+  <color name="tumblr">#32506d</color>
+  <color name="instagram">#517fa4</color>
+  <color name="flickr">#ff0084</color>
+  <color name="dribbble">#ea4c89</color>
+  <color name="quora">#a82400</color>
+  <color name="foursquare">#0072b1</color>
+  <color name="forrst">#5B9A68</color>
+  <color name="vk">#45668e</color>
+  <color name="wordpress">#21759b</color>
+  <color name="stumbleupon">#EB4823</color>
+  <color name="yahoo">#7B0099</color>
+  <color name="blogger">#fb8f3d</color>
+  <color name="soundcloud">#ff3a00</color>
+  
+</resources>
