@@ -22,7 +22,7 @@ class CitiesCoordinator: Coordinator {
     func start() {
         let nextVc = CitiesListViewController()
         nextVc.coordinator = self
-        nextVc.model = CitiesViewModel()
+        nextVc.model = CitiesViewModel(navigatioController: navigationController)
         nextVc.goToFilter = applyFilter
         
         navigationController.pushViewController(nextVc, animated: false)

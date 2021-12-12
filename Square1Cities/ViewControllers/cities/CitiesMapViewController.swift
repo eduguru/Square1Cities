@@ -16,7 +16,22 @@ class CitiesMapViewController: UIViewController {
     var markers = [GMSMarker]()
     var bounds = GMSCoordinateBounds()
     
+    var coordinator: Coordinator?
+    var model: CitiesListViewModel?
+    
+    var responseObject: CitiesResponse?
     var arrayList: [Item] = []
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let parentController = self.parent as! CitiesListViewController
+        responseObject = parentController.responseObject
+        arrayList = parentController.arrayList
+        loopArray(arrayList: arrayList)
+        print("arrayList", arrayList, "arrayList")
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +39,19 @@ class CitiesMapViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    private func getData(response: CitiesResponse?, items: [Item]) {
+        
+        responseObject = response
+        arrayList = items
+        loopArray(arrayList: arrayList)
+    }
+    
     func loopArray(arrayList: [Item]) {
         
         if !arrayList.isEmpty {
             for i in 0...arrayList.count - 1 {
                 
-                let currentItem: Item = self.arrayList[i];
+                let _: Item = self.arrayList[i];
                 
                 if let lat = arrayList[i].lat, let long = arrayList[i].lng {
 
@@ -42,11 +64,10 @@ class CitiesMapViewController: UIViewController {
                     marker.title = arrayList[i].name
                     marker.snippet = arrayList[i].localName
                     
-                    //marker.icon = UIImage(named: "motorbike-1")
-                    let markerImage = UIImage(named: "suMotorbike")
+                    let markerImage = UIImage(named: "logo")
                     let imageView = UIImageView(image: markerImage)
                     imageView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-                            
+
                     marker.iconView = imageView
                     //marker.icon = UIImage(named: "default_marker_uefora")
                       

@@ -21,6 +21,9 @@ class CitiesListViewController: UIViewController {
     var segmentioStyle = SegmentioStyle.onlyLabel
     var currentViewController: UIViewController?
     
+    var responseObject: CitiesResponse?
+    var arrayList: [Item] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -39,14 +42,30 @@ class CitiesListViewController: UIViewController {
             vc.view.frame = self.containerView.bounds
             self.containerView.addSubview(vc.view)
             self.currentViewController = vc
+            
         }
+        
+    }
+    
+    private func removeChildVc(asChildViewController viewController: UIViewController) {
+        
+        if let vc = currentViewController {
+                // Notify Child View Controller
+            vc.willMove(toParent: nil)
+                // Remove Child View From Superview
+            vc.view.removeFromSuperview()
+                // Notify Child View Controller
+            vc.removeFromParent()
+            
+        }
+        
         
     }
     
     private func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
         var vc: UIViewController?
         let  viewController = model?.vcDic[index]
-        vc = viewController as! UIViewController
+        vc = viewController as? UIViewController
         
         return vc
     }
@@ -55,6 +74,8 @@ class CitiesListViewController: UIViewController {
     private func setUpViews() {
         
         self.navigationItem.title = "World Cities"
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshList), name: .citiesNotification, object: nil)
         
         let filterButton: UIBarButtonItem = UIBarButtonItem(image: Asset.filter.image, style: UIBarButtonItem.Style.plain, target: self, action: #selector(applyFilter))
         
@@ -68,6 +89,19 @@ class CitiesListViewController: UIViewController {
         }
         
         displayCurrentTab(0)
+    }
+    
+    @objc func refreshList(notification: Notification){
+        
+        guard let object = notification.userInfo?["responseObject"] as? CitiesResponse else {
+            return
+        }
+        guard let arr = notification.userInfo?["arrayList"] as? [Item] else {
+            return
+        }
+        
+        self.responseObject = object
+        self.arrayList = arr
     }
     
     @objc private func applyFilter() {

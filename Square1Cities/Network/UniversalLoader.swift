@@ -15,15 +15,18 @@ class UniversalLoader {
     // an overlay for loader
     func showUniversalLoadingView(_ show: Bool, loadingText : String = "") {
         
-        let existingView = UIApplication.shared.windows[0].viewWithTag(1200)
-        if show {
-            if existingView != nil { return }
-            
-            let loadingView = makeLoadingView(withFrame: UIScreen.main.bounds, loadingText: loadingText)
-            loadingView?.tag = 1200
-            UIApplication.shared.windows[0].addSubview(loadingView!)
-            
-        } else { existingView?.removeFromSuperview() }
+//        guard let existingView = UIApplication.shared.windows[0].viewWithTag(1200) else {
+//            return
+//        }
+//        
+//        if show {
+//            if existingView != nil { return }
+//            
+//            let loadingView = makeLoadingView(withFrame: UIScreen.main.bounds, loadingText: loadingText)
+//            loadingView?.tag = 1200
+//            UIApplication.shared.windows[0].addSubview(loadingView!)
+//            
+//        } else { existingView.removeFromSuperview() }
 
     }
     

@@ -39,6 +39,7 @@
 		59F68AEE27651DB2000E3420 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59F68AEC27651DB2000E3420 /* FilterViewController.xib */; };
 		59F68AF0276529BD000E3420 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AEF276529BD000E3420 /* BaseNavigationController.swift */; };
 		59F68AF2276540D2000E3420 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AF1276540D1000E3420 /* CitiesViewModel.swift */; };
+		59F68AF4276546BA000E3420 /* CitiesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F68AF3276546BA000E3420 /* CitiesListViewModel.swift */; };
 		64B51A2AB41D3939967EAC5C /* Pods_Square1Cities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1BC51DBA6BC910F633EF7B8 /* Pods_Square1Cities.framework */; };
 		780C2B40FC35AB0963D66B63 /* Pods_Square1Cities_Square1CitiesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00227182FFD0C649D6C9A39C /* Pods_Square1Cities_Square1CitiesUITests.framework */; };
 /* End PBXBuildFile section */
@@ -99,6 +100,7 @@
 		59F68AEC27651DB2000E3420 /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		59F68AEF276529BD000E3420 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		59F68AF1276540D1000E3420 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
+		59F68AF3276546BA000E3420 /* CitiesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewModel.swift; sourceTree = "<group>"; };
 		A1BC51DBA6BC910F633EF7B8 /* Pods_Square1Cities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1Cities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF7ADDAB38746BA67BC5B9EE /* Pods-Square1CitiesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Square1CitiesTests.release.xcconfig"; path = "Target Support Files/Pods-Square1CitiesTests/Pods-Square1CitiesTests.release.xcconfig"; sourceTree = "<group>"; };
 		C1D2D79E2A0B4690E7D8256E /* Pods_Square1CitiesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Square1CitiesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,6 +336,7 @@
 			children = (
 				59F68ADE2764EEBD000E3420 /* CitiesViewController.swift */,
 				59F68ADF2764EEBD000E3420 /* CitiesViewController.xib */,
+				59F68AF3276546BA000E3420 /* CitiesListViewModel.swift */,
 			);
 			name = list;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				593634F627648F2A00E887FD /* AppDelegate.swift in Sources */,
 				593634F827648F2A00E887FD /* SceneDelegate.swift in Sources */,
 				59F68AE52764FAB8000E3420 /* CitiesResponse.swift in Sources */,
+				59F68AF4276546BA000E3420 /* CitiesListViewModel.swift in Sources */,
 				590B061A2764DE8C00A88A8B /* CitiesReviewData.swift in Sources */,
 				593635362764951D00E887FD /* CitiesListViewController.swift in Sources */,
 				59F68AF0276529BD000E3420 /* BaseNavigationController.swift in Sources */,

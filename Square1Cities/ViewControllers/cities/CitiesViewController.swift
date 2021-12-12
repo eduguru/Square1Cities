@@ -7,16 +7,19 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let citiesNotification = Notification.Name("citiesNotification")
+}
+
 class CitiesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var coordinator: Coordinator?
+    var model: CitiesListViewModel?
+    
     var responseObject: CitiesResponse?
     var arrayList: [Item] = []
-    
-    var page: Int = 1;
-    var total: Int = 1;
-    var search: String = "";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,30 +37,27 @@ class CitiesViewController: UIViewController {
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         
-        getData()
+        model?.updateView = { [weak self] a, b in
+            self?.getData(response: a, items: b)
+        }
     }
     
-    func getData() {
-        let review: CitiesReviewData = CitiesReviewData(
-            showCountry: true,
-            filter: "",
-            page: page
+    private func getData(response: CitiesResponse?, items: [Item]) {
+        responseObject = response
+        arrayList = items
+        
+        let dataDict: [String : Any] = [
+            "responseObject": responseObject,
+            "arrayList": arrayList
+        ]
+        
+        NotificationCenter.default.post(
+            name: .citiesNotification,
+            object: nil,
+            userInfo: dataDict
         )
         
-        CitiesService().queryCities(reviewData: review, completion: { [weak self] result in
-            guard let strongSelf = self else { return }
-            switch result {
-            case .success(let response):
-                print("arrayResponse \(response)")
-                strongSelf.responseObject = response
-                //strongSelf.arrayList = strongSelf.responseObject?.data?.items ?? []
-                strongSelf.arrayList.append(contentsOf: strongSelf.responseObject?.data?.items ?? [])
-                strongSelf.tableView.reloadData()
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        })
+        tableView.reloadData()
     }
 
 }
@@ -80,10 +80,13 @@ extension CitiesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.lbl_city.text = item.name
         cell.lbl_localName.text = item.localName
         
-        if indexPath.row == (arrayList.count - 3) && total >= page {
+        if indexPath.row == (arrayList.count - 3) && model?.total ?? 0 >= model?.page ?? 0 {
             // load more
             print("Loading more")
-            getData()
+            model?.loadMore()
+            model?.updateView = { [weak self] a, b in
+                self?.getData(response: a, items: b)
+            }
         }
         
         return cell
