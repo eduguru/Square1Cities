@@ -27,9 +27,9 @@ final class CitiesListViewModel {
     
     private func getData() {
         let review: CitiesReviewData = CitiesReviewData(
-            showCountry: true,
-            filter: "",
-            page: page
+            showCountry: UserDefaultsManager.shared.getShowCountry(),
+            filter: UserDefaultsManager.shared.getSearchFilter() ?? "",
+            page: UserDefaultsManager.shared.getPageNumber()
         )
         
         page += 1

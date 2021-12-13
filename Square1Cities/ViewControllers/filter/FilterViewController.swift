@@ -9,11 +9,17 @@ import UIKit
 
 class FilterViewController: UIViewController {
 
-    @IBOutlet weak var txt_search: UITextField!
+    @IBOutlet weak var txt_search: UITextField! {
+        didSet {
+            txt_search.text = UserDefaultsManager.shared.getSearchFilter()
+        }
+    }
     
     @IBOutlet weak var segmentYesNo: UISegmentedControl! {
         didSet {
             segmentYesNo.selectedSegmentTintColor = UIColor(named: .colorPrimary)
+            let index = UserDefaultsManager.shared.getShowCountry() ? 1 : 0
+            segmentYesNo.selectedSegmentIndex = index
         }
     }
     
@@ -42,6 +48,21 @@ class FilterViewController: UIViewController {
         
         filterData?.filter = self.txt_search.text ?? ""
         filterData?.page = 1
+        
+        let dataDict: [String : Any] = [
+            "filterData": filterData
+        ]
+        
+        NotificationCenter.default.post(
+            name: .filterNotification,
+            object: nil,
+            userInfo: dataDict
+        )
+        
+        UserDefaultsManager.shared.setPageNumber(page: filterData?.page ?? 1)
+        UserDefaultsManager.shared.setShowCountry(show: filterData?.showCountry ?? false)
+        UserDefaultsManager.shared.setSearchFilter(token: filterData?.filter ?? "")
+        
         self.applyFilterSet?(filterData!)
         
     }

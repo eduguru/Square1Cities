@@ -10,9 +10,12 @@ import UIKit
 class CitiesCoordinator: Coordinator {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
+    
+    var citiesViewModel: CitiesViewModel?
         
     required init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.citiesViewModel = CitiesViewModel(navigatioController: navigationController)
     }
     
     deinit {
@@ -22,7 +25,7 @@ class CitiesCoordinator: Coordinator {
     func start() {
         let nextVc = CitiesListViewController()
         nextVc.coordinator = self
-        nextVc.model = CitiesViewModel(navigatioController: navigationController)
+        nextVc.model = citiesViewModel
         nextVc.goToFilter = applyFilter
         
         navigationController.pushViewController(nextVc, animated: false)
@@ -39,6 +42,7 @@ class CitiesCoordinator: Coordinator {
     private func filterResult(filter: CitiesReviewData) {
         print(filter)
         self.finish()
+        self.citiesViewModel?.model?.loadMore()
         navigationController.popViewController(animated: true)
     }
 }
