@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DataCache
 
 extension Notification.Name {
     static let citiesNotification = Notification.Name("citiesNotification")
@@ -37,14 +38,34 @@ class CitiesViewController: UIViewController {
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         
+        do {
+            let object: CitiesResponse? = try DataCache.instance.readCodable(forKey: "myKey")
+            responseObject = object
+            arrayList = responseObject?.data?.items ?? []
+            
+            getData(response: responseObject, items: arrayList)
+        } catch {
+            print("Read error \(error.localizedDescription)")
+        }
+        
         model?.updateView = { [weak self] a, b in
             self?.getData(response: a, items: b)
         }
     }
     
     private func getData(response: CitiesResponse?, items: [Item]) {
-        responseObject = response
+        guard let object = response else {
+            return
+        }
+        responseObject = object
         arrayList = items
+        
+        do {
+            
+            try DataCache.instance.write(codable: object, forKey: "myKey")
+        } catch {
+            print("Write error \(error.localizedDescription)")
+        }
         
         let dataDict: [String : Any] = [
             "responseObject": responseObject,

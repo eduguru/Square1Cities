@@ -10,6 +10,7 @@ target 'Square1Cities' do
   pod 'Segmentio'
   pod 'IQKeyboardManager' #iOS8 and later
   pod 'SwiftGen', '~> 6.0'
+  pod 'DataCache'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 

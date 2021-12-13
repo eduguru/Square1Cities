@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.4)
+  - DataCache (1.6.0)
   - GoogleMaps (5.1.0):
     - GoogleMaps/Maps (= 5.1.0)
   - GoogleMaps/Base (5.1.0)
@@ -21,6 +22,7 @@ PODS:
   - SwiftGen (6.5.1)
 
 DEPENDENCIES:
+  - DataCache
   - GoogleMaps
   - IQKeyboardManager
   - Kingfisher
@@ -33,6 +35,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - DataCache
     - GoogleMaps
     - IQKeyboardManager
     - Kingfisher
@@ -45,6 +48,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: f3b09a368f1582ab751b3fff5460276e0d2cf5c9
+  DataCache: 5f24b356848a37469dbebec89c28ca88b4ef9294
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   Kingfisher: 5efc54fec3980f92354898532e562cc17f31efb4
@@ -55,6 +59,6 @@ SPEC CHECKSUMS:
   Segmentio: ab29def64e1bff6e6e9b97671788a99bed3f1d9f
   SwiftGen: a6d22010845f08fe18fbdf3a07a8e380fd22e0ea
 
-PODFILE CHECKSUM: 7195059047562414faff1e252764cceb9a3d7f2e
+PODFILE CHECKSUM: 8567c9e0b2733208289389940a80ef424e3a9077
 
 COCOAPODS: 1.11.2
