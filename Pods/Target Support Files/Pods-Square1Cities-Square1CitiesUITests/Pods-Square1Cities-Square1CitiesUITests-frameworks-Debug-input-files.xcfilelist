@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Square1Cities-Square1CitiesUITests/Pods-Square1Cities-Square1CitiesUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/DataCache/DataCache.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework

@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import DataCache
 
 extension Notification.Name {
     static let citiesNotification = Notification.Name("citiesNotification")
+    static let filterNotification = Notification.Name("filterNotification")
 }
 
 class CitiesViewController: UIViewController {
@@ -37,14 +39,34 @@ class CitiesViewController: UIViewController {
         tableView.layoutMargins = UIEdgeInsets.zero
         tableView.separatorInset = UIEdgeInsets.zero
         
+        do {
+            let object: CitiesResponse? = try DataCache.instance.readCodable(forKey: "myKey")
+            responseObject = object
+            arrayList = responseObject?.data?.items ?? []
+            
+            getData(response: responseObject, items: arrayList)
+        } catch {
+            print("Read error \(error.localizedDescription)")
+        }
+        
         model?.updateView = { [weak self] a, b in
             self?.getData(response: a, items: b)
         }
     }
     
     private func getData(response: CitiesResponse?, items: [Item]) {
-        responseObject = response
+        guard let object = response else {
+            return
+        }
+        responseObject = object
         arrayList = items
+        
+        do {
+            
+            try DataCache.instance.write(codable: object, forKey: "myKey")
+        } catch {
+            print("Write error \(error.localizedDescription)")
+        }
         
         let dataDict: [String : Any] = [
             "responseObject": responseObject,
@@ -65,6 +87,16 @@ class CitiesViewController: UIViewController {
 //MARK:
 extension CitiesViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func updateViews() {
+        
+        DispatchQueue.main.async {
+            self.model?.loadMore()
+            self.model?.updateView = { [weak self] a, b in
+                self?.getData(response: a, items: b)
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayList.count
     }
@@ -79,14 +111,12 @@ extension CitiesViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.lbl_city.text = item.name
         cell.lbl_localName.text = item.localName
+        cell.lbl_country.text = item.country?.name ?? "N/A"
         
         if indexPath.row == (arrayList.count - 3) && model?.total ?? 0 >= model?.page ?? 0 {
             // load more
             print("Loading more")
-            model?.loadMore()
-            model?.updateView = { [weak self] a, b in
-                self?.getData(response: a, items: b)
-            }
+            updateViews()
         }
         
         return cell

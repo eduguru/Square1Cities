@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var coordinator: AppCoordinator?
     
-    private var GOOGLE_PLACES_API_KEY = "AIzaSyD2ivJBX0RFZ_HlxVQQ0tCL94_Vzzcm_mQ"
+    private var GOOGLE_PLACES_API_KEY = "INSERT GOOGLE MAP KEY"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

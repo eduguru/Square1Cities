@@ -10,19 +10,19 @@ import Foundation
 import SwiftUI
 
 // MARK: - CitiesResponse
-struct CitiesResponse: Decodable {
+struct CitiesResponse: Codable {
     let data: DataClass?
     let time: Int?
 }
 
 // MARK: - DataClass
-struct DataClass: Decodable {
+struct DataClass: Codable {
     let items: [Item]?
     let pagination: Pagination?
 }
 
 // MARK: - Item
-struct Item: Decodable {
+struct Item: Codable {
     let id: Int?
     let name: String?
     let localName: String?
@@ -45,7 +45,7 @@ struct Item: Decodable {
 }
 
 // MARK: - Country
-struct Country: Decodable {
+struct Country: Codable {
     let id: Int?
     let name: String?
     let code: String?
@@ -63,7 +63,7 @@ struct Country: Decodable {
 }
 
 // MARK: - Pagination
-struct Pagination: Decodable {
+struct Pagination: Codable {
     let currentPage, lastPage, perPage, total: Int?
     
     enum CodingKeys: String, CodingKey {
