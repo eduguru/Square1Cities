@@ -48,7 +48,6 @@ class CitiesListViewController: UIViewController {
     }
     
     private func removeChildVc(asChildViewController viewController: UIViewController) {
-        
         // Just to be safe, we check that this view controller
         // is actually added to a parent before removing it.
         guard parent != nil else {
@@ -76,6 +75,7 @@ class CitiesListViewController: UIViewController {
         
         self.navigationItem.title = "World Cities"
         NotificationCenter.default.addObserver(self, selector: #selector(refreshList), name: .citiesNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChildVc), name: .filterNotification, object: nil)
         
         let filterButton: UIBarButtonItem = UIBarButtonItem(image: Asset.filter.image, style: UIBarButtonItem.Style.plain, target: self, action: #selector(applyFilter))
         self.navigationItem.setRightBarButtonItems([filterButton], animated: true)
@@ -103,6 +103,15 @@ class CitiesListViewController: UIViewController {
         
         self.responseObject = object
         self.arrayList = arr
+    }
+    
+    @objc func updateChildVc(notification: Notification){
+        
+        guard let object = notification.userInfo?["filterData"] as? CitiesReviewData else {
+            return
+        }
+        
+        CitiesViewController().updateViews()
     }
     
     @objc private func applyFilter() {
