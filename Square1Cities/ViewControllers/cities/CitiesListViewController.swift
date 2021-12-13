@@ -49,17 +49,18 @@ class CitiesListViewController: UIViewController {
     
     private func removeChildVc(asChildViewController viewController: UIViewController) {
         
-        if let vc = currentViewController {
-                // Notify Child View Controller
-            vc.willMove(toParent: nil)
-                // Remove Child View From Superview
-            vc.view.removeFromSuperview()
-                // Notify Child View Controller
-            vc.removeFromParent()
-            
+        // Just to be safe, we check that this view controller
+        // is actually added to a parent before removing it.
+        guard parent != nil else {
+            return
         }
         
-        
+        // Notify Child View Controller
+        viewController.willMove(toParent: nil)
+        // Notify Child View Controller
+        viewController.removeFromParent()
+        // Remove Child View From Superview
+        viewController.view.removeFromSuperview()
     }
     
     private func viewControllerForSelectedSegmentIndex(_ index: Int) -> UIViewController? {
@@ -74,17 +75,17 @@ class CitiesListViewController: UIViewController {
     private func setUpViews() {
         
         self.navigationItem.title = "World Cities"
-        
         NotificationCenter.default.addObserver(self, selector: #selector(refreshList), name: .citiesNotification, object: nil)
         
         let filterButton: UIBarButtonItem = UIBarButtonItem(image: Asset.filter.image, style: UIBarButtonItem.Style.plain, target: self, action: #selector(applyFilter))
-        
         self.navigationItem.setRightBarButtonItems([filterButton], animated: true)
         
         self.setUpSegmentio()
         segmentioView.valueDidChange = { segmentio, segmentIndex in
             print("Selected item: ", segmentIndex)
-            
+            if let vc = self.currentViewController {
+                self.removeChildVc(asChildViewController: vc)
+            }
             self.displayCurrentTab(segmentIndex)
         }
         
